@@ -10,7 +10,7 @@ function delay(n) {
 function pageTransition() {
 	var tl = gsap.timeline();
 	tl.to(".loading-screen", {
-		duration: 0.8,
+		duration: 0.7,
 		width: "100%",
 		left: "0%",
 		ease: "Expo.easeInOut"

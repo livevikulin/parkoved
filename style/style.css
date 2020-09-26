@@ -1,3 +1,95 @@
+@font-face {
+	font-family: 'FuturaDemiC';
+	src: url('../fonts/FuturaDemiC.eot');
+	src: local('Futura Demi Cyrillic'), local('FuturaDemiC'),
+		url('../fonts/FuturaDemiC.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/FuturaDemiC.woff') format('woff'),
+		url('../fonts/FuturaDemiC.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'FuturaMediumC';
+	src: url('../fonts/FuturaMediumC.eot');
+	src: local('Futura Medium Cyrillic'), local('FuturaMediumC'),
+		url('../fonts/FuturaMediumC.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/FuturaMediumC.woff') format('woff'),
+		url('../fonts/FuturaMediumC.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'FuturaLightC';
+	src: url('../fonts/FuturaLightC-Italic.eot');
+	src: local('Futura Light Italic Cyrillic'), local('FuturaLightC-Italic'),
+		url('../fonts/FuturaLightC-Italic.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/FuturaLightC-Italic.woff') format('woff'),
+		url('../fonts/FuturaLightC-Italic.ttf') format('truetype');
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'FuturaMediumC';
+	src: url('../fonts/FuturaMediumC-Italic.eot');
+	src: local('Futura Medium Italic Cyrillic'), local('FuturaMediumC-Italic'),
+		url('../fonts/FuturaMediumC-Italic.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/FuturaMediumC-Italic.woff') format('woff'),
+		url('../fonts/FuturaMediumC-Italic.ttf') format('truetype');
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'FuturaLightC';
+	src: url('../fonts/FuturaLightC.eot');
+	src: local('Futura Light Cyrillic'), local('FuturaLightC'),
+		url('../fonts/FuturaLightC.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/FuturaLightC.woff') format('woff'),
+		url('../fonts/FuturaLightC.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'FuturaDemiC';
+	src: url('../fonts/FuturaDemiC-Italic.eot');
+	src: local('Futura Demi Italic Cyrillic'), local('FuturaDemiC-Italic'),
+		url('../fonts/FuturaDemiC-Italic.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/FuturaDemiC-Italic.woff') format('woff'),
+		url('../fonts/FuturaDemiC-Italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'FuturaBookC';
+	src: url('../fonts/FuturaBookC-Italic.eot');
+	src: local('Futura Book Italic Cyrillic'), local('FuturaBookC-Italic'),
+		url('../fonts/FuturaBookC-Italic.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/FuturaBookC-Italic.woff') format('woff'),
+		url('../fonts/FuturaBookC-Italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'FuturaBookC';
+	src: url('../fonts/FuturaBookC.eot');
+	src: local('Futura Book Cyrillic'), local('FuturaBookC'),
+		url('../fonts/FuturaBookC.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/FuturaBookC.woff') format('woff'),
+		url('../fonts/FuturaBookC.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -49,7 +141,6 @@ body {
 header,
 footer {
 	padding: 16px 0;
-	background: #D2D2D2;
 }
 
 header,
@@ -58,8 +149,19 @@ footer {
 	width: 100%;
 }
 
+header,
+main {
+	background: #F4F4F4;
+}
+
+footer {
+	background: #ffffff;
+}
+
 main {
 	height: 100%;
+	border-top: 1px solid #C2C1C1;
+	overflow: auto;
 }
 
 .header {
@@ -81,17 +183,49 @@ main {
 	margin-bottom: 0;
 }
 
+.balance {
+	display: flex;
+	align-items: center;
+	font-family: 'FuturaMediumC';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 18px;
+	color: #232323;
+}
+
+.balance span {
+	margin-left: 8px;
+}
+
 .main {
 	height: 100%;
 	padding: 16px 0;
 	position: relative;
 }
 
+.main-subtitle {
+	font-family: 'FuturaBookC';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 18px;
+	color: #232323;
+}
+
 .main-picture {
 	height: 194px;
+	border: 2px solid #802AD4;
 	background: #E6E6E6;
 	border-radius: 5px;
 	margin: 18px 0;
+	overflow: hidden;
+}
+
+.main-picture img {
+	width: 100%;
+	max-width: 100%;
+	object-fit: cover;
 }
 
 .choice {
@@ -111,72 +245,146 @@ main {
 
 .choice-box span {
 	display: block;
+	font-family: 'FuturaMediumC';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 18px;
+	color: #232323;
 	margin-bottom: 8px;
 }
 
 .choice-box select {
 	width: 100%;
-	padding: 16px 20px;
-	background: #E5E5E5;
+	padding: 16px 12px;
+	font-family: 'FuturaBookC';
+	font-size: 16px;
+	line-height: 18px;
+	color: #232323;
+	border-radius: 5px;
 	border: none;
+	appearance: none;
+	background: #FFFFFF;
+	background-image: url('../img/arrow-select.svg');
+	background-repeat: no-repeat;
+	background-position: center right 12px;
+	outline: none;
 }
 
 .btn {
 	display: block;
 	width: 100%;
 	padding: 20px 0;
+	font-family: 'FuturaMediumC';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 21px;
+	color: #FFFFFF;
 	text-align: center;
-	background: #E6E6E6;
+	background: #802AD5;
 	border-radius: 5px;
 	margin: 20px 0;
 	text-decoration: none;
 }
 
-.btn-absolute {
-	position: absolute;
-	bottom: 0;
+.btn-red {
+	line-height: 15px;
+	font-weight: 500;
+	font-size: 13px;
+	background: #CA0A0A;
+	margin: 0;
+	padding: 12px 0;
+}
+
+.btn-green {
+	background: #48AB26;
+}
+
+.progress {
+	display: flex;
+	align-items: center;
+	padding-bottom: 14px;
 }
 
 .progress-bar {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-bottom: 32px;
+	min-width: 188px;
+	background: #FFFFFF;
+	border-radius: 5px;
+	padding: 10px 14px;
+	margin-right: 12px;
 }
 
-.progress-bar span {
-	display: block;
+.progress-bar__item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 20px;
 	height: 20px;
-	background: #C4C4C4;
+	background: #F4F4F4;
+	border-radius: 50%;
+}
+
+.progress-bar__item span {
+	display: block;
+	width: 12px;
+	height: 12px;
 	border-radius: 50%;
 }
 
 .progress-bar .done {
-	background: #23A003;
+	background: #48AB26;
 }
 
 .progress-bar .during {
-	background: #BBCB01;
+	background: #C4DB3C;
 }
 
 .info-block {
-	padding: 20px;
-	background: #E6E6E6;
+	background: #ffffff;
+	padding: 24px 28px;
 	border-radius: 5px;
+	margin-bottom: 20px;
 	position: relative;
+}
+
+.info-block:last-child {
+	margin-bottom: 0;
+}
+
+.block-active {
+	border: 1px solid #48AB26;
+}
+
+.block-active:before {
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: rgba(72, 171, 38, 0.3);
+	z-index: 1;
 }
 
 .btn-map {
 	position: absolute;
-	top: 10px;
-	right: 20px;
+	top: 20px;
+	right: 13px;
 	display: inline-block;
-	padding: 12px 30px;
-	text-align: center;
-	background: #C4C4C4;
-	border-radius: 6px;
+	padding: 8px 30px;
+	font-family: 'FuturaBookC';
+	font-size: 14px;
+	line-height: 16px;
+	color: #802AD4;
+	border-radius: 5px;
 	text-decoration: none;
+	border: 1px solid #802AD4;
+	z-index: 2;
 }
 
 .rating-box {
@@ -198,33 +406,83 @@ main {
 }
 
 .end {
-	padding: 100px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 40px 0;
+}
+
+.end img {
+	margin-bottom: 32px;
 }
 
 .end p {
 	width: 100%;
 	max-width: 216px;
+	font-family: 'FuturaBookC';
+	font-size: 16px;
+	line-height: 18px;
 	text-align: center;
+	color: #232323;
 	margin: 0 auto;
 }
 
+.end p span {
+	font-weight: 600;
+}
+
 .recommendation {
-	background: #E5E5E5;
+	background: #FFFFFF;
 	border-radius: 5px;
-	padding: 32px;
+	padding: 36px 28px;
 }
 
 .recommendation h2 {
-	font-size: 26px;
-	line-height: 29px;
-	color: #000000;
+	font-family: 'FuturaDemiC';
+	font-weight: 600;
+	font-size: 30px;
+	line-height: 35px;
+	color: #232323;
 	margin-bottom: 16px;
 }
 
+.recommendation-block {
+	display: flex;
+}
+
+.recommendation-box img {
+	width: 160px;
+	height: 99px;
+}
+
 .recommendation p {
-	font-size: 16px;
-	line-height: 18px;
+	font-family: 'FuturaBookC';
+	font-size: 14px;
+	line-height: 16px;
+	color: #575757;
+}
+
+.recommendation p span {
+	display: block;
+	font-family: 'FuturaDemiC';
+	font-weight: 600;
+	font-size: 26px;
+	line-height: 30px;
+	color: #F4587D;
+}
+.recommendation-btn {
+	display: inline-block;
+	font-family: 'FuturaMediumC';
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 14px;
 	color: #000000;
+	text-align: center;
+	text-decoration: none;
+	padding: 8px 20px;
+	margin-top: 16px;
+	border: 1px solid #802AD5;
+	border-radius: 5px;
 }
 
 .footer-menu {
@@ -234,14 +492,19 @@ main {
 }
 
 .carousel-name {
+	font-family: 'FuturaDemiC';
 	font-weight: 600;
-	font-size: 16px;
-	line-height: 19px;
-	color: #000000;
+	font-size: 18px;
+	line-height: 21px;
+	color: #232323;
 	margin-bottom: 32px;
 }
 
 .carousel-subtitle {
+	font-family: 'FuturaBookC';
+	font-size: 16px;
+	line-height: 18px;
+	color: #959595;
 	margin-bottom: 36px;
 }
 
@@ -249,11 +512,37 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-bottom: 20px;
+	margin-bottom: 12px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #F4F4F4;
+}
+
+.specifications-block span {
+	display: flex;
+	align-items: center;
+}
+
+.specifications-block span span {
+	margin-left: 4px;
+}
+
+.specifications-block:last-child {
+	border: none;
+}
+
+.specifications-block > span:last-child {
+	font-family: 'FuturaMediumC';
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	color: #802AD4;
 }
 
 .specifications span {
-	display: block;
+	font-family: 'FuturaBookC';
+	font-size: 13px;
+	line-height: 15px;
+	color: #959595;
 }
 
 .complexity-box {
@@ -261,25 +550,48 @@ main {
 	align-items: center;
 }
 
-.complexity-box span {
-	display: block;
-	width: 14px;
-	height: 14px;
-	background: #FE1616;
+.complexity-box__item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	background: #F4F4F4;
 	border-radius: 50%;
 	margin-right: 8px;
 }
 
-.complexity-box span:last-child {
+.hard-complexity span {
+	background: #E56D6D;
+}
+
+.medium-complexity span {
+	background: #CADD59;
+}
+
+.complexity-box__item span {
+	display: block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+}
+
+.complexity-box__item:last-child {
 	margin-right: 0;
 }
 
 .footer-menu__item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 44px;
 	height: 44px;
 	margin-right: 32px;
-	background: #9E9E9E;
 	border-radius: 5px;
+}
+
+.footer-menu .active {
+	background: #802AD5;
 }
 
 .footer-menu__item:last-child {
