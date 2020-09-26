@@ -99,7 +99,6 @@ body {
 	justify-content: center;
 	width: 100%;
 	max-width: 375px;
-	height: 100vh;
 	margin: 0 auto;
 	background: #F4F4F4;
 }
@@ -149,6 +148,16 @@ main {
 	background: #F4F4F4;
 }
 
+header {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	height: 60px;
+	transform: translateX(-50%);
+	z-index: 10;
+}
+
+
 footer {
 	background: #ffffff;
 	position: fixed;
@@ -167,6 +176,10 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	width: 100%;
+	max-width: 375px;
+	margin: 0 auto;
+	padding: 0 16px;
 }
 
 .burger span {
