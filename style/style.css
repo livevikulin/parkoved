@@ -430,18 +430,24 @@ main {
 	display: flex;
 	align-items: center;
 	padding: 20px 0;
+	direction: rtl;
 }
 
-.rating-box .star-selected path {
-	fill: #BBCB01;
+.rating-box input {
+	display: none;
 }
 
-.rating-box__item {
-	margin-right: 12px;
+.rating-box label {
+	float: right;
+	margin-left: 10px;
 }
 
-.rating-box__item:last-child {
-	margin-right: 0;
+.rating-box input[type="radio"]:checked ~ label path {
+	fill:#BBCB01;
+}
+
+.rating-box label:last-child {
+	margin-left: 0;
 }
 
 .end {
