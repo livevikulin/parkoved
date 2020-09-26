@@ -16,6 +16,7 @@ body {
 }
 
 .container {
+	height: 100%;
 	padding: 0 16px;
 }
 
@@ -55,7 +56,9 @@ main {
 }
 
 .main {
+	height: 100%;
 	padding: 16px 0;
+	position: relative;
 }
 
 .main-picture {
@@ -101,6 +104,11 @@ main {
 	border-radius: 5px;
 	margin: 20px 0;
 	text-decoration: none;
+}
+
+.btn-absolute {
+	position: absolute;
+	bottom: 0;
 }
 
 .progress-bar {
