@@ -86,10 +86,6 @@
 	font-style: normal;
 }
 
-
-
-
-
 * {
 	margin: 0;
 	padding: 0;
@@ -103,8 +99,9 @@ body {
 	justify-content: center;
 	width: 100%;
 	max-width: 375px;
-	height: 640px;
+	height: 100vh;
 	margin: 0 auto;
+	background: #F4F4F4;
 }
 
 .wrapper {
