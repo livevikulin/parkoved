@@ -153,6 +153,54 @@ main {
 	text-decoration: none;
 }
 
+.rating-box {
+	display: flex;
+	align-items: center;
+	padding: 20px 0;
+}
+
+.rating-box .star-selected path {
+	fill: #BBCB01;
+}
+
+.rating-box__item {
+	margin-right: 12px;
+}
+
+.rating-box__item:last-child {
+	margin-right: 0;
+}
+
+.end {
+	padding: 100px 0;
+}
+
+.end p {
+	width: 100%;
+	max-width: 216px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.recommendation {
+	background: #E5E5E5;
+	border-radius: 5px;
+	padding: 32px;
+}
+
+.recommendation h2 {
+	font-size: 26px;
+	line-height: 29px;
+	color: #000000;
+	margin-bottom: 16px;
+}
+
+.recommendation p {
+	font-size: 16px;
+	line-height: 18px;
+	color: #000000;
+}
+
 .footer-menu {
 	display: flex;
 	align-items: center;
