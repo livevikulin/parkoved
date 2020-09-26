@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/list_quest', 'QuestController@getCard');
-Route::post('/saveCard', 'QuestController@getCard');
+Route::post('/saveCard', 'QuestController@saveCard');

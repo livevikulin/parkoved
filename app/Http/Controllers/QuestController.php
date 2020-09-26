@@ -70,6 +70,23 @@ class QuestController extends Controller
         limit 0,1
         ');
         if (!empty($next_card[0])) {
+            $hold = new Hold();
+            $isHold = $hold->where([
+                'id_attr' => $next_card[0]->id,
+            ])->first();
+            if (!empty($isHold)) {
+                $isHold->counts = $isHold->counts + 1;
+                $isHold->save();
+            } else {
+                $hold->create(
+                    [
+                        'id_user' => 990,
+                        'id_attr' => $next_card[0]->id,
+                        'counts' => 1
+                    ]
+                );
+            }
+
             return response()->json(["success" => true, "next_card" => $next_card[0]]);
         } else {
             return response()->json(["success" => false]);
@@ -79,14 +96,16 @@ class QuestController extends Controller
     public function saveCard(Request $request)
     {
         if (!empty($request->input('attr'))) {
-            $board = new Board();
-            $board->create(
-                [
-                    'id_user' => 999,
-                    'id_attr' => $request->input('attr'),
-                    'date' => date('Y-m-d H:i:s')
-                ]
-            );
+            if(!$request->input('close')) {
+                $board = new Board();
+                $board->create(
+                    [
+                        'id_user' => 999,
+                        'id_attr' => $request->input('attr'),
+                        'date' => date('Y-m-d H:i:s')
+                    ]
+                );
+            }
             $hold = new Hold();
             $isHold = $hold->where([
                 'id_attr' => $request->input('attr'),
