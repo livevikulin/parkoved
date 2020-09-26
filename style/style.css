@@ -108,6 +108,9 @@ body {
 }
 
 .loading-screen {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: relative;
 	padding-left: 0;
 	padding-right: 0;
@@ -115,6 +118,19 @@ body {
 	background-color: #802AD5;
 	width: 0%;
 	height: 100%;
+}
+
+.loading-screen svg {
+	animation: svgAnim 1s ease;
+}
+
+@keyframes svgAnim {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .load-container {
@@ -416,6 +432,10 @@ main {
 }
 
 .rating h1 span {
+	font-family: 'FuturaDemiC';
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 21px;
 	color: #232323;
 }
 

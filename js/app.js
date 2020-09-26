@@ -21,7 +21,7 @@ function pageTransition() {
 		width: "100%",
 		left: "100%",
 		ease: "Expo.easeInOut",
-		delay: 0.3
+		delay: 0.4
 	});
 	tl.set(".loading-screen", { left: "-100%" });
 }
@@ -29,10 +29,10 @@ function pageTransition() {
 function contentAnimation() {
 	var tl = gsap.timeline();
 	tl.from(".animate-this", {
-		duration: 0.2,
-		y: 30,
+		duration: 0.4,
+		y: 50,
 		opacity: 0,
-		stagger: 0.1,
+		stagger: 0.2,
 		delay: 0.1
 	});
 }
