@@ -272,7 +272,9 @@ main {
 }
 
 .btn {
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
 	padding: 20px 0;
 	font-family: 'FuturaMediumC';
@@ -286,6 +288,10 @@ main {
 	border-radius: 5px;
 	margin: 20px 0;
 	text-decoration: none;
+}
+
+.btn svg {
+	margin-left: 8px;
 }
 
 .btn-red {
@@ -385,6 +391,26 @@ main {
 	text-decoration: none;
 	border: 1px solid #802AD4;
 	z-index: 2;
+}
+
+.rating {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 40px 30px;
+	background: #FFFFFF;
+	border-radius: 5px;	
+}
+
+.rating h1 span {
+	color: #232323;
+}
+
+.rating span {
+	font-family: 'FuturaBookC';
+	font-size: 16px;
+	line-height: 18px;
+	color: #959595;
 }
 
 .rating-box {
