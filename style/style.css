@@ -103,10 +103,93 @@ main {
 	text-decoration: none;
 }
 
+.progress-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 32px;
+}
+
+.progress-bar span {
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: #C4C4C4;
+	border-radius: 50%;
+}
+
+.progress-bar .done {
+	background: #23A003;
+}
+
+.progress-bar .during {
+	background: #BBCB01;
+}
+
+.info-block {
+	padding: 20px;
+	background: #E6E6E6;
+	border-radius: 5px;
+	position: relative;
+}
+
+.btn-map {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	display: inline-block;
+	padding: 12px 30px;
+	text-align: center;
+	background: #C4C4C4;
+	border-radius: 6px;
+	text-decoration: none;
+}
+
 .footer-menu {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.carousel-name {
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 19px;
+	color: #000000;
+	margin-bottom: 32px;
+}
+
+.carousel-subtitle {
+	margin-bottom: 36px;
+}
+
+.specifications-block {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.specifications span {
+	display: block;
+}
+
+.complexity-box {
+	display: flex;
+	align-items: center;
+}
+
+.complexity-box span {
+	display: block;
+	width: 14px;
+	height: 14px;
+	background: #FE1616;
+	border-radius: 50%;
+	margin-right: 8px;
+}
+
+.complexity-box span:last-child {
+	margin-right: 0;
 }
 
 .footer-menu__item {
