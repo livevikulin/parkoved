@@ -60,15 +60,29 @@ class QuestController extends Controller
             ["id" => 2, "value" => 16]
         ];*/
 
-        $next_card = DB::select('
-        select
-        p_attr.id, name, text, timing, parcoin, p_diff.diff, (select timing from p_local where (id_attr1 = ' . $is_attr_id . ' and id_attr2=p_attr.id) or (id_attr2 = ' . $is_attr_id . ' and id_attr1=p_attr.id) ) + (case when max(date) then timing - (UNIX_TIMESTAMP( now() ) - UNIX_TIMESTAMP( max(date) ))/60 else 0 end) + (case when counts then (counts div hold) * timing else 0 end) minStart from p_attr left join p_board on p_board.id_attr = p_attr.id left join p_hold on p_hold.id_attr = p_attr.id join p_diff on p_diff.id=p_attr.diff
-        where p_attr.id not in (' . $exclude_attr_ids . ') and (select count(id) from p_attr_config where id_attr=p_attr.id and ( (id_conf=' . $conf_arr[0]["id"] . ' and value>=' . $conf_arr[0]["value"] . ') or (id_conf=' . $conf_arr[1]["id"] . ' and value>=' . $conf_arr[1]["value"] . ' ) ) ) = 0
-        group by p_board.id_attr, p_attr.id, counts, timing, hold
-        having (timing - (UNIX_TIMESTAMP( now() ) - UNIX_TIMESTAMP( max(date)))/60) >=0 or max(date) is NULL
-        order by minStart asc
-        limit 0,1
-        ');
+
+        $time = DB::insert( DB::raw( 'CREATE TEMPORARY TABLE attrs 
+            select p_attr.id attr, name, text,  timing, hold, p_diff.diff, parcoin,  ( case when 0= ' . $is_attr_id . ' then start_local else (select timing from p_local where (id_attr1 = ' . $is_attr_id . ' and id_attr2=p_attr.id) or (id_attr2 = ' . $is_attr_id . ' and id_attr1=p_attr.id)  ) end) timetogo
+            from p_attr join p_diff on p_diff.id=p_attr.diff
+            where p_attr.id not in (' . $exclude_attr_ids . ') and 
+            (select count(id) from p_attr_config where id_attr=p_attr.id and 
+            (
+                (id_conf=' . $conf_arr[0]["id"] . ' and value<' . $conf_arr[0]["value"] . ') or (id_conf=' . $conf_arr[1]["id"] . ' and value<' . $conf_arr[1]["value"] . ' )
+            )
+            ) = 0
+        ') );
+        $next_card = DB::select('select attr id, name, text,  timing, parcoin, diff, 
+
+            timetogo + 
+            (case when max(date)  and (timing - (UNIX_TIMESTAMP( now() ) - UNIX_TIMESTAMP( max(date) ))/60) >0 then timing - (UNIX_TIMESTAMP( now() ) - UNIX_TIMESTAMP( max(date) ))/60 else 0 end)
+            + (case when counts then  (counts div hold) * timing else 0 end)
+            minStart
+            from  attrs left join p_board on p_board.id_attr = attr 
+            left join p_hold on p_hold.id_attr = attr 
+            group by p_hold.id_attr,p_board.id_attr, attr, timetogo, counts, timing, hold, parcoin, diff, name, text
+            order by minStart asc
+        
+            ');        
         if (!empty($next_card[0])) {
             $hold = new Hold();
             $isHold = $hold->where([
