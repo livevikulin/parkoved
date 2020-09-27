@@ -147,15 +147,15 @@ Qeust.prototype.createListCards = function(items) {
 			<div class="specifications">\
 				<div class="specifications-block">\
 					<span>Сложность</span>\
-					<div class="complexity-box '+(items[i].name>2?'hard-':'medium-')+'complexity">\
+					<div class="complexity-box '+(items[i].diff>2?'hard-':'medium-')+'complexity">\
 						<div class="complexity-box__item">\
 							<span></span>\
 						</div>\
 						<div class="complexity-box__item">\
-							'+(items[i].name>1?'<span></span>':'')+'\
+							'+(items[i].diff>1?'<span></span>':'')+'\
 						</div>\
 						<div class="complexity-box__item">\
-							'+(items[i].name>2?'<span></span>':'')+'\
+							'+(items[i].diff>2?'<span></span>':'')+'\
 						</div>\
 					</div>\
 				</div>\
